@@ -1,63 +1,85 @@
-<p align="center">
-  <h1 align="center">AWMonitor</h1>
-  <h3 align="center">A Carbon Emission and Waste Monitoring Platform. </h3>
+# Endpoint
 
-</p>
+## Register
 
-## Contents
+- URL
+  - /registrasi
+- Method
+  - POST
+- Request Body
+  - name = string
+  - email = string (must be unique)
+  - password = string
+- Response
 
-## Team
+  ```json
+  {
+    "message": "Registrasi Success"
+  }
+  ```
 
-- (ML) M2471F3093 - M. Rafli Julian
-- (ML) M2119f1493 - Lusi Aulia Jati
-- (ML) M2004F0250 - Eko Bagus Yanuar
-- (MD) A2471F3094 - Habib Rizky Almajid Siregar
-- (MD) A2471G3091 - Muhammad Yashlan Iskandar
-- (MD) A2404G2969 - Habyb Nur Ikhsan
-- (CC) C2014J1373 - Prakoso Dwika Prihambodo
-- (CC) C2014F1372 - Rossario Catherine Elfrida
-- (CC) C2465F3081 - Ronaldo Baja Pradana
+## Login
 
+- URL
+  - /login
+- Method
+  - POST
+- Request Body
+  - email = string (must be unique)
+  - password = string
+- Response
 
-## About AWMonitor
+  ```json
+  {
+    "message": "Login Success",
+    "data": {
+      "id": 27,
+      "name": "arale",
+      "email": "arale@gmail.com"
+    }
+  }
+  ```
 
+## Input Data History
 
-## Fitur Utama
+- URL
+  - /input
+- Method
+  - POST
+- Request Body
+  - location = string
+  - date = datetime
+  - aqi = double
+  - o3 = double
+  - so2 = double
+  - no2 = double
+  - co = double
+  - pm10 = double
+  - pm25 = double
+  - temperature = double
+  - humidity = double
+  - wind_speed = double
+- Response
 
-## API
-### api-awmonitor-nodejs
-
-api ini berfungsi:
-
-1. untuk memasukkan data registrasi user kedalam database users
-2. untuk melakukan pengecekan data login dari user mengunakan database user
-3.  untuk memasukkan dara history air weather kedalam database history
-
-### api-awmonitor-flask
-
-api ini berfungsi:
-
-1. untuk pembacaan data current air weather 34 provinsi di indonesia dari weatherbit
-2. untuk pembacaan 3 data history dari weatherbit
-3. untuk pembacaan 3 data prediction dari model mesin learning
-
-## Cloud Computing
-
-Why we use Cloud ?
-- Low entry cost
-- Ability to scale on-demand
-- Go-to-market quicker
-- Focus on core business
-
-What we use ?
-- Cloud Service : Google Cloud Platform
-- Compute : App Engine, Cloud Run
-- VPC: asia-southeast1/a
-- DB : Cloud SQL
-- Repo : Github
-- Web Server : Flask
-
-## REST API
-We are using **NodeJS** with **Express** Framework and **CloudSQL** as our development technology stack and  This REST API
-is used to support our Android Application.
-
+  ```json
+  {
+    "message": "Input Success",
+    "data": {
+      "id": 248,
+      "location": "kuta",
+      "date": "2022-05-22T00:00:00.000Z",
+      "aqi": "20",
+      "o3": "12.517",
+      "so2": "0.745058",
+      "no2": "2.52761",
+      "co": "0.745058",
+      "pm10": "8.64493",
+      "pm25": "4.82701",
+      "temperature": "24.6",
+      "humidity": "85.5625",
+      "wind_speed": "3.63511",
+      "updatedAt": "2022-06-10T08:08:38.387Z",
+      "createdAt": "2022-06-10T08:08:38.387Z"
+    }
+  }
+  ```
